@@ -1,6 +1,9 @@
 <?php
 //A simple example of usage of SugarCRM REST API
 
+//Create a "Contacts" record
+
+
 //Specify the REST web service to interact with
 $url = "http://localhost/sugarcrm/service/v4_1/rest.php";
 
