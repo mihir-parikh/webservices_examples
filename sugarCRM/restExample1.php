@@ -63,6 +63,28 @@ $response = json_decode(curl_exec($curl));
 $contact_id = $response->id;
 echo "Set entry result $contact_id <br />";
 
+//Update the same record
+$fields = array("id", "last_name");
+$record_data = array($contact_id, "Test4");
+$module = "Contacts";
+
+$parameters = array(
+	"session" => $session,
+	"module_name" => $module,
+	"name_value_list" => array(
+		array("name" => $fields[0], "value" => $record_data[0]),
+		array("name" => $fields[1], "value" => $record_data[1]),
+	)
+);
+
+$json = json_encode($parameters);
+
+$postArgs = "method=set_entry&input_type=JSON&response_type=JSON&rest_data=".$json;
+curl_setopt($curl, CURLOPT_POSTFIELDS, $postArgs);
+
+$response = json_decode(curl_exec($curl));
+
+
 //Logout of Sugar
 $parameters = array("session" => $session);
 $json = json_encode($parameters);
