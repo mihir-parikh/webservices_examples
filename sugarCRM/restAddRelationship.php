@@ -65,4 +65,6 @@ $relationshipParametersJSON = json_encode($relationshipParameters);
 $postFieldsRelationship = "method=set_relationship&input_type=JSON&response_type-JSON&rest_data=$relationshipParametersJSON";
 curl_setopt($ch, CURLOPT_POSTFIELDS, $postFieldsRelationship);
 $relationshipResponse = json_decode(curl_exec($ch));
+
+curl_close($ch);
 ?>
