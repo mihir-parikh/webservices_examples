@@ -1,5 +1,4 @@
 <?php
-//Reference: http://www.9lessons.info
 class Rest{
    public $_allow = array();
    public $_content_type = "application/json";
